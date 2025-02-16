@@ -1,0 +1,1 @@
+// For Recommendation product need to install one app from app store which is Search & Discovery 
