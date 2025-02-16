@@ -1,0 +1,45 @@
+//Modify theme.liquid code 
+
+//Before </bode> tag need to add thid script code 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function initFancybox() {
+      $("[data-fancybox='gallery']").fancybox({
+        loop: true,
+        arrows: true,
+        infobar: true,
+        buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+        animationEffect: "fade",
+        keyboard: true,
+        toolbar: true,
+        hash: false, // 🔹 Prevents URL change
+        backFocus: false,
+        protect: true
+      });
+
+      // Prevent default action (redirect) when Fancybox is active
+      $("[data-fancybox]").on("click", function (e) {
+        e.preventDefault();
+      });
+    }
+
+    // Initialize Fancybox
+    initFancybox();
+
+    // Fix for Shopify Customizer and dynamic reloading
+    $(document).on("shopify:section:load shopify:section:reorder", function () {
+      initFancybox();
+    });
+  });
+</script>
+
+
+
+//And Befor </head> tag need to add this code 
+
+ <!-- Fancybox CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<!-- Fancybox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
